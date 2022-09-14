@@ -15,23 +15,32 @@ img{
     width: 140px;
 }
 
-.icon {
+#b {
     background-size: cover;
     height: 150px;
     width: 150px;
-    margin-left: 100px;
-    margin-top: 100px;
+    border-style: none;
+    background-color: transparent;
 }
 .player {
+    display: flex;
+    flex-direction: column;
     width: 250px;
+    height: 80vh;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .enemy {
+    display: flex;
     width: 250px;
+    justify-content: center;
 }
 .vs {
     display: flex;
+    flex-direction: column;
     width: 250px;
+    justify-content: center;
     align-items: center;
     font-size: 75px;
 }
@@ -41,3 +50,9 @@ img{
     align-items: center;
     width: 150px;
 }
+
+.resultText {
+    display: flex;
+    text-align: center;
+}
+

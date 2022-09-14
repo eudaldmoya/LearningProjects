@@ -1,5 +1,6 @@
 let array = ["rock", "paper", "scissor"];
 let winner;
+let start = true;
 
 
 function getRndInteger(min, max) {
@@ -7,7 +8,18 @@ function getRndInteger(min, max) {
     return array[rand];
 }
 
-
+function printWinner(wins) {
+    console.log(winner);
+    if (wins == 1) {
+        document.querySelector(".resultText").innerHTML="You won!";
+    }
+    if (wins == 2) {
+        document.querySelector(".resultText").innerHTML="The computer won!";
+    }
+    if(wins == 0) {
+        document.querySelector(".resultText").innerHTML="We have a draw!";
+    }
+}
 
 function playRound(player, computer) {
     if (player == computer) winner = 0;
@@ -15,18 +27,22 @@ function playRound(player, computer) {
     if((player == "paper" && computer == "scissor") || (player == "rock" && computer == "paper") || (player == "scissor" && computer == "rock")) winner = 2;
     return winner;
 }
+
+
+
 function game() {
 
         const btninputs = document.querySelectorAll("button");
-        console.log(btninputs.length);
         btninputs.forEach((input) => {
-            console.log("hey");
             input.addEventListener('click', () => {
                 let player = input.className;
-                console.log(player);
                 let computer = getRndInteger(0, array.length-1);
 
                 let enemyDiv = document.querySelector(".enemy");
+                if(!start) {
+                let previousenemyimg = document.querySelector(".enemypick");
+                previousenemyimg.remove();
+                }
                 let enemyimg = document.createElement("img");
                 enemyimg.setAttribute(
                     'src',
@@ -36,15 +52,13 @@ function game() {
                 enemyimg.setAttribute('width', 150);
                 enemyimg.setAttribute('class', 'enemypick');
                 enemyDiv.appendChild(enemyimg);
-                playRound(player, computer);
+                start = false;
+                let wins = playRound(player, computer);
+                printWinner(wins);
                 });
         });
         
-        
-        if (winner == 1) console.log(`The Player won the battle! ${player} wins over ${computer} !`);
-        if (winner == 2) console.log(`The Computer won the battle! ${computer} wins over ${player} !`);
-        if(winner == 0) console.log("We have a draw!");
-    
+   
 }
 
 game();
