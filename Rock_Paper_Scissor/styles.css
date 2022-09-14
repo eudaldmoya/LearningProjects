@@ -1,0 +1,43 @@
+.flex-container{
+    font-family: 'Roboto Mono';font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    
+    min-height: 100vh;
+}
+
+.game {
+display: flex;
+justify-content: space-around;
+}
+
+img{
+    width: 140px;
+}
+
+.icon {
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.player {
+    width: 250px;
+}
+
+.enemy {
+    width: 250px;
+}
+.vs {
+    display: flex;
+    width: 250px;
+    align-items: center;
+    font-size: 75px;
+}
+
+.enemypick {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}

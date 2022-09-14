@@ -5,10 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
-    <script src="javascript.js"></script>
-    <style src="styles.css"></style>
-</head>
-<body>
     
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+</head>
+<body class="flex-container">
+    <div class="game">
+        <div class="player">
+            <div class="option">
+                <button type="button" id="b1"  class="rock icon"><img src="icons/rock.svg" alt="rock"></button>
+            </div>
+            <div class="option">
+                <button type="button"  id="b2" class="paper icon"><img src="icons/paper.svg" alt="paper"></button>
+            </div>
+            <div class="option">
+                <button type="button" id="b3" class="scissor icon"><img src="icons/scissors.svg" alt="scissor"></button>
+            </div>
+        </div>
+        <div class="vs">
+                <h1>VS</h1>
+        </div>
+        <div class="enemy">
+
+        </div>
+    </div>
+    <div class="result">
+
+    </div>
 </body>
+<script src="javascript.js"></script>
+<footer class="footer"></footer>
 </html>
