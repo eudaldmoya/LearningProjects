@@ -65,7 +65,25 @@ buttonArr.forEach(button => {
 
 
 function calculate(opArr) {
-
+    let noMultOrDiv = false;
+    console.log(parseInt(opArr[0]) + parseInt(opArr[2]));
+    for(i = 0; i<opArr.length; i++) {
+         
+        if(opArr[i] == "*" || opArr[i] == "/"){
+            if(opArr[i] == "*"){
+                opArr[i-1] = parseInt(opArr[i-1]) * parseInt(opArr[i+1]);
+                opArr.splice(i, 2);
+                i--;
+            }
+            if(opArr[i] == "/"){
+                if(opArr[i] == "/"){
+                    opArr[i-1] = parseInt(opArr[i-1]) / parseInt(opArr[i+1]);
+                    opArr.splice(i, 2);
+                }
+            }
+        }
+        
+    }
 }
 
 
