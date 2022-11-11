@@ -1,0 +1,182 @@
+@import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
+
+body{
+    cursor:crosshair;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    top: 0;
+    margin: 0;
+    background-color: rgb(250, 250, 250);
+}
+body:-webkit-scrollbar {
+    display: none;
+  }
+
+.web-title{
+    color: rgb(250, 250, 250);
+    font-size: 10.5vw;
+    margin-bottom: 100px;
+    background-color: #202020;
+}
+.web-title:hover {
+    
+    transition: all .5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    background-color: rgb(250, 250, 250);;
+    color: #202020;
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: auto;
+    padding-bottom: 30px;
+}
+
+.left-info-div {
+    color: #202020;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 40vw;
+}
+
+.form {
+    display: none;
+}
+
+.personal-information {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.welcome {
+    color: #202020;
+    margin-top: 60px;
+    font-size: 2rem;
+}
+
+.add-book, .f-submit-btn {
+    cursor: pointer;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    transition: all .1s ease-in-out;
+    background-color: white;
+    border: solid black 2px;
+    padding: 1.2vw 8vw 1.2vw 8vw;
+    margin-top: 60px; 
+    margin-bottom: 60px;
+}
+.add-book:hover, .f-submit-btn:hover {
+    transition: all .1s ease-in-out;
+    background-color: #202020;
+    color: white;
+}
+
+.mid-line {
+    border-left: solid #202020 3px;
+    width: 0px;
+    margin-bottom: auto;
+    height: 800px;
+}
+
+.books-div{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 160px;
+    gap: 60px;
+}
+
+.book-card {
+    display: flex;
+    border-bottom: solid #202020 2px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    width: 50vw;
+    margin-right: 6vw;
+}
+
+.book-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.book-title {
+    color: #202020;
+    font-size: 4rem;
+}
+
+.book-author, .f-author, .f-title, .f-pages {
+    color: #202020;
+    font-size: 2rem;
+}
+
+.book-pages {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: #808080;
+}
+
+.delete-button {
+    cursor: pointer;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    transition: all .1s ease-in-out;
+    background-color: white;
+    border: solid #202020 2px;
+    padding: 0.5vw 4vw 0.5vw 4vw;
+    
+}
+.delete-button:hover {
+    transition: all .1s ease-in-out;
+    background-color: #202020;
+    color: white;
+}
+
+.read-button {
+    cursor: pointer;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    transition: all .1s ease-in-out;
+    background-color: white;
+    border: solid #202020 2px;
+    padding: 0.5vw 4vw 0.5vw 4vw;
+    
+}
+.read-button:hover {
+    transition: all .1s ease-in-out;
+    background-color: #202020;
+    color: white;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 26px;
+}
+
+.f-title, .f-author, .f-pages {
+    display: flex;
+    flex-direction: column;
+    padding-top: 26px;
+    gap: 8px;
+}
+
+.f-input {
+    background-color: white;
+    border: solid #202020 2px;
+    padding: 1.2vw 4vw 1.2vw 1vw;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+
