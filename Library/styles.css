@@ -158,6 +158,23 @@ body:-webkit-scrollbar {
     color: white;
 }
 
+.read-button-op {
+    cursor: pointer;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    transition: all .1s ease-in-out;
+    background-color: #202020;
+    border: solid #202020 2px;
+    padding: 0.5vw 4vw 0.5vw 4vw;
+    color: white;
+    
+}
+.read-button-op:hover {
+    transition: all .1s ease-in-out;
+    background-color: white;
+    color: #202020;
+}
+
 .form-div{
     display: flex;
     flex-direction: column;

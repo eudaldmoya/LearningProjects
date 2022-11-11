@@ -1,8 +1,7 @@
 //let myLibrary = [{ "id": "1", "title": "Life 3.0", "author": "Max Tegmark", "npages": "300" }, { "id": "2", "title": "Think Again", "author": "Adam Grant", "npages": "350" }, { "id": "3", "title": "Sapiens", "author": "Yuval Noah Harari", "npages": "500" }];
-let myLibrary2 = [{ "id": "1", "title": "Life 3.0", "author": "Max Tegmark", "npages": "300" }, { "id": "2", "title": "Think Again", "author": "Adam Grant", "npages": "350" }, { "id": "3", "title": "Sapiens", "author": "Yuval Noah Harari", "npages": "500" }];
+let myLibrary2 = [{ "title": "Life 3.0", "author": "Max Tegmark", "npages": "300" }, { "title": "Think Again", "author": "Adam Grant", "npages": "350" }, { "title": "Sapiens", "author": "Yuval Noah Harari", "npages": "500" }];
 
-function Book(id, title, author, npages, isRead) {
-    this.id = id;
+function Book(title, author, npages, isRead) {
     this.title = title;
     this.author = author;
     this.npages = npages;
@@ -13,8 +12,6 @@ const form = document.querySelector("#form");
 let titleF = document.querySelector("#title");
 let authorF = document.querySelector("#author");
 let npagesF = document.querySelector("#npages");
-let bookId = 3;
-let btnId = 0;
 printBooks(myLibrary2);
 
 
@@ -22,12 +19,10 @@ printBooks(myLibrary2);
 form.addEventListener("submit", function addBookToLibrary(e) {
     e.preventDefault();
     if (titleF.value != "" && authorF.value != "" && npagesF.value != "") {
-        
-        bookId++;
-        let book = new Book(bookId, titleF.value, authorF.value, npagesF.value, false);
+
+        let book = new Book(titleF.value, authorF.value, npagesF.value, false);
         myLibrary2.push(book);
         deleteAllBooks();
-        btnId = 0;
         printBooks(myLibrary2);
         const form = document.querySelector("#form");
         form.style.display = "none";
@@ -41,6 +36,7 @@ form.addEventListener("submit", function addBookToLibrary(e) {
 
 });
 
+
 //Add Book Button
 const addBookBtn = document.querySelector(".add-book");
 addBookBtn.addEventListener("click", function showForm(e) {
@@ -49,18 +45,45 @@ addBookBtn.addEventListener("click", function showForm(e) {
     form.style.display = "block";
 });
 
+
 //Remove Book Button
 let deleteButtons = document.querySelectorAll(".delete-button");
 let deleteButtonsArr = Array.from(deleteButtons);
 deleteButtonsArr.forEach(btn => {
-    let idToRemove = parseInt(btn.id);
-    myLibrary2.splice(idToRemove, 1);
-    
+    btn.addEventListener("click", () => {
+        let divToDelete = btn.closest(".book-card");
+        divToDelete.remove();
+        let i = 0;
+        for(let j = 0; j<myLibrary2.length; j++) {
+            if(myLibrary2[j].title == btn.id) {
+                break;
+            }
+            i++;
+        }
+        myLibrary2.splice(i, 1);
+        console.log(myLibrary2);
+    });
 });
 
-
-
-
+//Read Button Management
+let readButtons = document.querySelectorAll(".read-button");
+let readButtonsArr = Array.from(readButtons);
+readButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        let i = 0;
+        for(let j = 0; j<myLibrary2.length; j++) {
+            if(myLibrary2[j].title == btn.id) {
+                break;
+            }
+            i++;
+        }
+        myLibrary2[i].isRead = !myLibrary2[i].isRead;
+        if(myLibrary2[i].isRead) {
+            btn.className = "read-button-op";
+        }
+        else btn.className = "read-button-op";
+    });
+});
 
 
 function printBooks(myLibrary) {
@@ -69,6 +92,7 @@ function printBooks(myLibrary) {
         //Creates book card
         let bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
+        bookCard.id = book.title;
         booksDiv.appendChild(bookCard);
 
         //Creates left side of Book Card
@@ -103,28 +127,27 @@ function printBooks(myLibrary) {
         deleteButton.setAttribute("type", "button");
         deleteButton.classList.add("delete-button");
         deleteButton.textContent = "REMOVE";
-        btnId++;
-        deleteButton.id = btnId;
+        deleteButton.id = book.title;
         bookCardRight.appendChild(deleteButton);
 
         let readButton = document.createElement("button");
         readButton.setAttribute("type", "button");
         readButton.classList.add("read-button");
         readButton.textContent = "READ";
+        readButton.id = book.title;
         bookCardRight.appendChild(readButton);
     });
 }
 
-function deleteAllBooks () {
+function deleteAllBooks() {
     let booksDiv = document.querySelector(".books-div");
     booksDiv.remove();
     let contentWrapper = document.querySelector(".content-wrapper");
     let newBooksDiv = document.createElement("div");
     newBooksDiv.classList.add("books-div");
     contentWrapper.appendChild(newBooksDiv);
-    
-
 }
+
 
 
 
