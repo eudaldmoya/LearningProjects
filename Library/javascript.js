@@ -81,7 +81,7 @@ readButtons.forEach(btn => {
         if(myLibrary2[i].isRead) {
             btn.className = "read-button-op";
         }
-        else btn.className = "read-button-op";
+        else btn.className = "read-button";
     });
 });
 
